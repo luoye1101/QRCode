@@ -20,6 +20,7 @@ static CGFloat leftRightMargin = 50;
 @interface QLQRCodeViewController () <AVCaptureMetadataOutputObjectsDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *scanLineImageView;
+@property (nonatomic, assign) BOOL isDisappear;
 @property (nonatomic, strong) AVCaptureSession *session;                     //扫描的中间控件
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer; //相机预览图层
 
@@ -49,12 +50,15 @@ static CGFloat leftRightMargin = 50;
     if (self.session.isRunning == NO) {
         [self.session startRunning];
     }
+    [self annimationForScanLineImageView];
+    self.isDisappear = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
     [self.session stopRunning];
+    self.isDisappear = YES;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -95,6 +99,23 @@ static CGFloat leftRightMargin = 50;
 }
 
 #pragma mark - Action
+//扫描框横线动画
+- (void)annimationForScanLineImageView {
+    
+    CGFloat y = (SCREEN_HEIGHT - (SCREEN_WIDTH - 2 * leftRightMargin)) * 0.5;
+    [UIView animateWithDuration:1.0 animations:^{
+        self.scanLineImageView.frame = CGRectMake(self.scanLineImageView.frame.origin.x, y, self.scanLineImageView.bounds.size.width, self.scanLineImageView.bounds.size.height);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:1.0 animations:^{
+            self.scanLineImageView.frame = CGRectMake(self.scanLineImageView.frame.origin.x, y + (SCREEN_WIDTH - 2 * leftRightMargin) - 3, self.scanLineImageView.bounds.size.width, self.scanLineImageView.bounds.size.height);
+        } completion:^(BOOL finished) {
+            if (self.isDisappear == NO) {
+                [self annimationForScanLineImageView];
+            }
+        }];
+    }];
+}
+
 //判断应用是否有使用相机的权限
 - (BOOL)judgeCameraJurisdiction {
     
