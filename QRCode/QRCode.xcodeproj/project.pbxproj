@@ -14,6 +14,7 @@
 		E704980F1EC40423008EB2D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E704980E1EC40423008EB2D8 /* Assets.xcassets */; };
 		E70498121EC40423008EB2D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E70498101EC40423008EB2D8 /* LaunchScreen.storyboard */; };
 		E704981E1EC404F6008EB2D8 /* QRCodeImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E704981B1EC404F6008EB2D8 /* QRCodeImage.xcassets */; };
+		E70498211EC40606008EB2D8 /* QLQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70498201EC40606008EB2D8 /* QLQRCodeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,8 @@
 		E70498111EC40423008EB2D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E70498131EC40423008EB2D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E704981B1EC404F6008EB2D8 /* QRCodeImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = QRCodeImage.xcassets; sourceTree = "<group>"; };
+		E704981F1EC40606008EB2D8 /* QLQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLQRCodeViewController.h; sourceTree = "<group>"; };
+		E70498201EC40606008EB2D8 /* QLQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLQRCodeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 		E704981D1EC404F6008EB2D8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E704981F1EC40606008EB2D8 /* QLQRCodeViewController.h */,
+				E70498201EC40606008EB2D8 /* QLQRCodeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 		E70497F71EC40423008EB2D8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = QL;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = sjyt;
 				TargetAttributes = {
@@ -188,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E704980A1EC40423008EB2D8 /* ViewController.m in Sources */,
+				E70498211EC40606008EB2D8 /* QLQRCodeViewController.m in Sources */,
 				E70498071EC40423008EB2D8 /* AppDelegate.m in Sources */,
 				E70498041EC40423008EB2D8 /* main.m in Sources */,
 			);
