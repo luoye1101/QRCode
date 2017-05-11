@@ -1,0 +1,8 @@
+source 'git://182.148.123.132/repos/CGSpecs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'QRCode' do
+
+pod ‘CGAlertView’
+
+end

@@ -21,7 +21,9 @@
 
 - (IBAction)buttonAction:(id)sender {
     
+    UIViewController *vc = [[UIStoryboard storyboardWithName:@"QRCode" bundle:nil] instantiateViewControllerWithIdentifier:@"CGQRCodeViewController"];
     
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

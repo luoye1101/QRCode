@@ -1,0 +1,15 @@
+PODS:
+  - CGAlertView (4.0.3):
+    - Masonry
+  - Masonry (1.0.2)
+
+DEPENDENCIES:
+  - CGAlertView
+
+SPEC CHECKSUMS:
+  CGAlertView: 3f92dce34dbc293fd7b951c5bf2b1bf7a7517c95
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+
+PODFILE CHECKSUM: 1f5ea22bbbe64971d6f93dfbdc47138ffd7dd8e5
+
+COCOAPODS: 1.1.1
