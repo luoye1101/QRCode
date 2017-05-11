@@ -98,6 +98,36 @@ static CGFloat leftRightMargin = 50;
     self.scanLineImageView.frame = CGRectMake(self.scanLineImageView.frame.origin.x, topMargin + SCREEN_WIDTH - 2 * leftRightMargin - 3, self.scanLineImageView.bounds.size.width, self.scanLineImageView.bounds.size.height);
 }
 
+#pragma mark - AVCaptureMetadataOutputObjectsDelegate
+- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection {
+    
+    if (metadataObjects.count > 0) {
+        [self.session stopRunning];
+        AVMetadataMachineReadableCodeObject *codeObject = [metadataObjects firstObject];
+        NSString *codeString = codeObject.stringValue;
+        NSLog(@"codeString - %@", codeString);
+        [self outputDataAnalysis:codeString];
+    }
+}
+
+#pragma mark - 扫码后数据分析
+/**
+ 扫描结果数据分析
+ 
+ @param outputData 扫描结果字符串
+ */
+- (void)outputDataAnalysis:(NSString *)outputData {
+    
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:outputData]]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:outputData]];
+        [self.session startRunning];
+    } else {
+        [[CGAlertView shareInstance] showMessage:@"不支持的二维码类型" withHanderBlock:^(CGAlertView *alertView, NSInteger buttonIndex) {
+            [self.session startRunning];
+        }];
+    }
+}
+
 #pragma mark - Action
 //扫描框横线动画
 - (void)annimationForScanLineImageView {
